@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+    <title>Yard sale</title>
+    <style>
+        :root {
+            --very-light-pink: #C7c7c7;
+            --text-input-field: #f7f7f7;
+            --hospital-green: #acd982;
+            --white: #FFFFFF;
+            --black: #000000;
+            --dark: #232830;
+            --sm: 14px;
+            --md: 16px;
+            --lg: 18px;
+        }
+
+        body {
+            margin: 0;
+            
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        
+        .menu-mobile {
+            padding: 24px;
+            /* display: flex;
+            flex-direction: column; */
+            /* justify-content: space-between; */
+        }
+        
+        .menu-mobile a {
+            text-decoration: none;
+            color: var(--black);
+            font-weight: bold;
+        }
+
+        .menu-mobile ul{
+            list-style: none;
+            margin: 24px 0 0;
+            padding: 0px;
+        }
+        
+        .menu-mobile ul:first-child {
+            border-bottom: 1px solid var(--very-light-pink);
+        }
+        
+        .menu-mobile ul:last-child {
+            position: absolute;
+            bottom: 0px;
+        }
+
+        .menu-mobile ul li {
+            margin: 0 0 24px;
+            padding-left: 8px;
+        }
+        
+        .menu-mobile  ul:first-child li:not(:first-child) {
+            padding-left: 12px;
+        }
+
+        .menu-mobile .menu-mobile__li-email {
+            font-size: var(--sm);
+            font-weight: normal;
+        }
+        .menu-mobile .menu-mobile__li-sign_out {
+            color: var(--hospital-green);
+            font-size: var(--sm);
+        }
+
+        /* .menu-mobile ul:nth-child(1) > li:nth-child(1) {
+            padding: 0px;
+        } */
+    </style>
+</head>
+    
+<body>
+    <div class="menu-mobile">
+
+        <ul>
+            <li>
+                <a href="/">CATEGORIES</a>
+            </li>
+            <li>
+                <a href="/">All</a>
+            </li>
+            <li>
+                <a href="/">Clothes</a>
+            </li>
+            <li>
+                <a href="/">Electronics</a>
+            </li>
+            <li>
+                <a href="/">Furnitures</a>
+            </li>
+            <li>
+                <a href="/">Toys</a>
+            </li>
+            <li>
+                <a href="/">Others</a>
+            </li>
+        </ul>
+
+        <ul>
+            <li>
+                <a href="/">My orders</a>
+            </li>
+            <li>
+                <a href="/">My account</a>
+            </li>
+        </ul>
+
+        <ul>
+            <li>
+                <a href="/" class="menu-mobile__li-email">email@domain.com</a>
+            </li>
+            <li>
+                <a href="/" class="menu-mobile__li-sign_out">Sign out</a>
+            </li>
+        </ul>
+
+    </div>
+</body>
+</html>
