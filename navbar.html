@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,7 +24,7 @@
 
         body {
             margin: 0;
-            
+
             font-family: 'Quicksand', sans-serif;
         }
 
@@ -35,11 +36,11 @@
             align-items: center;
             border-bottom: 1px solid var(--very-light-pink);
         }
-        
+
         .nav__menu {
             display: none;
         }
-        
+
         .nav__home-logo {
             width: 150px;
         }
@@ -47,7 +48,7 @@
         .nav__navbar-left {
             display: flex;
         }
-        
+
         .nav__navbar-left ul {
             margin: 0px 12px;
         }
@@ -60,8 +61,9 @@
             margin-left: 10px;
             transform: rotate(90deg);
         }
-        
-        .nav__navbar-left ul li a, .nav__navbar-right ul li a {
+
+        .nav__navbar-left ul li a,
+        .nav__navbar-right ul li a {
             text-decoration: none;
             color: var(--very-light-pink);
             border: 1px solid var(--white);
@@ -72,12 +74,14 @@
             align-items: center;
         }
 
-        .nav__navbar-left ul li a:hover, .nav__navbar-right ul li a:hover {
+        .nav__navbar-left ul li a:hover,
+        .nav__navbar-right ul li a:hover {
             border: 1px solid var(--hospital-green);
             color: var(--hospital-green);
         }
-        
-        .nav__navbar-left ul, .nav__navbar-right ul {
+
+        .nav__navbar-left ul,
+        .nav__navbar-right ul {
             list-style: none;
             padding: 0 24px;
             margin: 0;
@@ -87,7 +91,7 @@
         }
 
         .nav__navbar-right ul {
-            
+
             padding-right: 0px;
             gap: 16px;
             padding-right: 8px;
@@ -96,6 +100,7 @@
         .nav__navbar-right ul li:first-child {
             padding-right: 8px;
         }
+
         .nav__navbar-right ul li:first-child img {
             margin: 0;
             padding: 0;
@@ -104,11 +109,11 @@
         .nav__shopping-cart {
             position: relative;
         }
-        
+
         .nav__shopping-cart img {
             height: 28px;
         }
-        
+
         .nav__shopping-cart div {
             width: 16px;
             height: 16px;
@@ -123,7 +128,7 @@
             justify-content: center;
             align-items: center;
         }
-        
+
         @media (max-width: 640px) {
 
             .nav {
@@ -132,7 +137,7 @@
                 align-items: center;
                 border-bottom: 1px solid var(--very-light-pink);
             }
-            
+
             .nav__menu {
                 display: block;
             }
@@ -150,13 +155,12 @@
                 display: none;
             }
         }
-
     </style>
 </head>
-    
+
 <body>
     <nav class="nav">
-        <img src="/icons/icon_menu.svg" alt="Menu" class="nav__menu">
+        <img src="./icons/icon_menu.svg" alt="Menu" class="nav__menu">
         <div class="nav__navbar-left">
             <img src="/logos/logo_yard_sale.svg" alt="Home" class="nav__home-logo">
 
@@ -168,9 +172,9 @@
                 <li class="nav__li"><a href="">Furnitures</a></li>
                 <li class="nav__li"><a href="">Toys</a></li>
                 <li class="nav__li"><a href="">Others</a></li>
-                
+
             </ul>
-            
+
         </div>
         <div class="nav__navbar-right">
             <ul>
@@ -186,4 +190,5 @@
         </div>
     </nav>
 </body>
+
 </html>
