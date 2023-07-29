@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,6 +22,12 @@
             --lg: 18px;
         }
 
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
         body {
             margin: 0;
 
@@ -29,169 +36,262 @@
 
         .shopping-cart__container {
             width: 100%;
+            max-width: 250rem;
             height: 100vh;
+            display: grid;
+            grid-template-rows: auto 1fr;
         }
-        
-            .mini-nav {
-                width: auto;
-                height: auto;
-                padding: 8px 20px;
-                text-align: center;
-                display: flex;
-                border-bottom: 4px solid #00000011;
-            }
-                .mini-nav img {
-                    width: 8px 8px;
-                }
-                .mini-nav img:nth-child(2) {
-                    display: none;
-                    transform: rotate(180deg);
-                }
-                .mini-nav > span {
-                    font-size: var(--lg);
-                    font-weight: bolder;
-                    align-self: center;
-                }
 
-            .shopping-cart {
-                margin: 20px;
-            }
-                
-                .shopping-cart__product {
-                    width: 100%;
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                    box-sizing: border-box;
-                }
+        .mini-nav {
+            width: auto;
+            height: 60px;
+            padding: .8rem 0 .8rem 1rem;
+            text-align: center;
+            display: flex;
+            /* border-bottom: 4px solid #00000011; */
+            gap: 1rem;
+            position: sticky;
+            top: 0;
+            background-color: var(--white);
+        }
 
-                    .shopping-cart__product > div {
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        gap: 16px;
-                        margin-bottom: 16px;
-                    }
-                
-                        .shopping-cart__image {
-                            height: 80px;
-                            width: 80px;
-                            border-radius: 16px;
-                            object-fit: cover;
-                        }
-                        .shopping-cart__product-description {
-                            font-weight: lighter;
-                            font-size: var(--lg);
-                        }
-                        .shopping-cart__product-price {
-                            font-weight: bolder;
-                            font-size: var(--lg);
-                        }
+        .mini-nav img:nth-child(1) {
+            display: none;
+        }
 
-                /* .shopping-cart > div:last-child {
-                    box-sizing: border-box;
-                    position: absolute;
-                    bottom: 0px;
-                    width: 100%;
-                } */
-                    .shopping-cart__total {
-                        display: flex;
-                        justify-content: space-between;
-                        align-items: center;
-                        background-color: var(--text-input-field);
-                        border-radius: 8px;
-                        padding: 8px 12px;
-                        margin: 16px 0px;
-                    }
-                        .shopping-cart__total p:nth-child(2) {
-                            font-weight: bolder;
-                            font-size: var(--lg);
-                        }
-                    
-                    .shopping-cart__button {
-                        background-color: var(--hospital-green);
-                        width: 100%;
-                        border: none;
-                        border-radius: 8px;
-                        height: 60px;
-                        font-size: var(--lg);
-                        font-weight: bolder;
-                        color: var(--white);
-                        margin-bottom: 20px;
-                    }
-        </style>
+        .mini-nav img:nth-child(2) {
+            /* display: none; */
+            align-self: center;
+            width: 1rem;
+            height: 1rem;
+            transform: rotate(180deg);
+        }
+
+        .mini-nav>span {
+            font-size: var(--lg);
+            font-weight: bolder;
+            align-self: center;
+        }
+
+        .shopping-cart {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .shopping-cart>ul {
+            padding: 1rem 1rem 0;
+            overflow-y: overlay;
+            border-top: 1px solid var(--very-light-pink);
+            border-bottom: 1px solid var(--very-light-pink);
+            min-height: calc(100vh - 60px - 7rem);
+        }
+
+        .shopping-cart__product {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        .shopping-cart__product>div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .shopping-cart__image {
+            height: 80px;
+            width: 80px;
+            border-radius: 1rem;
+            object-fit: cover;
+        }
+
+        .shopping-cart__product-description {
+            font-weight: lighter;
+            font-size: var(--lg);
+        }
+
+        .shopping-cart__product-price {
+            font-weight: bolder;
+            font-size: var(--lg);
+        }
+
+        .shopping-cart__total {
+            position: sticky;
+            bottom: 0;
+            width: 100%;
+            height: 7rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--text-input-field);
+            border-radius: 1rem 1rem 0 0;
+            padding: 1rem;
+            gap: .5rem;
+        }
+
+        .shopping-cart__total>div {
+            width: 100%;
+            /* height: 2rem; */
+            margin: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .shopping-cart__total p:nth-child(2) {
+            font-weight: bolder;
+            font-size: var(--lg);
+        }
+
+        .shopping-cart__button {
+            background-color: var(--hospital-green);
+            width: 100%;
+            height: 2.5rem;
+            border: none;
+            border-radius: 1rem;
+            font-size: var(--lg);
+            font-weight: bolder;
+            color: var(--white);
+        }
+    </style>
 </head>
 
 <body>
     <aside class="shopping-cart__container">
         <div class="mini-nav">
             <img src="./icons/icon_menu.svg" alt="menu">
+
             <img src="./icons/flechita.svg" alt="go back">
+
             <span>Shopping Cart</span>
         </div>
-    
+
         <section class="shopping-cart">
-            <div class="shopping-cart__product">
-                <div>
-                    <img src="https://images.pexels.com/photos/769733/pexels-photo-769733.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="product-image" class="shopping-cart__image">
-                    <p class="shopping-cart__product-description">Roudn Shelf</p>
+            <ul>
+                <div class="shopping-cart__product">
+                    <div>
+                        <img src="https://images.pexels.com/photos/769733/pexels-photo-769733.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                            alt="product-image" class="shopping-cart__image">
+
+                        <p class="shopping-cart__product-description">T-Shio</p>
+                    </div>
+
+                    <div>
+                        <p class="shopping-cart__product-price">$120.00</p>
+
+                        <img src="./icons/icon_close.png" alt="delete">
+                    </div>
                 </div>
-                <div>
-                    <p class="shopping-cart__product-price">$120.00</p>
-                    <img src="./icons/icon_close.png" alt="delete">
+
+                <div class="shopping-cart__product">
+                    <div>
+                        <img src="https://images.pexels.com/photos/769733/pexels-photo-769733.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                            alt="product-image" class="shopping-cart__image">
+
+                        <p class="shopping-cart__product-description">T-Shio</p>
+                    </div>
+
+                    <div>
+                        <p class="shopping-cart__product-price">$120.00</p>
+
+                        <img src="./icons/icon_close.png" alt="delete">
+                    </div>
                 </div>
-            </div>
-            <div class="shopping-cart__product">
-                <div>
-                    <img src="https://images.pexels.com/photos/769733/pexels-photo-769733.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="product-image" class="shopping-cart__image">
-                    <p class="shopping-cart__product-description">Roudn Shelf</p>
+
+                <div class="shopping-cart__product">
+                    <div>
+                        <img src="https://images.pexels.com/photos/769733/pexels-photo-769733.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                            alt="product-image" class="shopping-cart__image">
+
+                        <p class="shopping-cart__product-description">T-Shio</p>
+                    </div>
+
+                    <div>
+                        <p class="shopping-cart__product-price">$120.00</p>
+
+                        <img src="./icons/icon_close.png" alt="delete">
+                    </div>
                 </div>
-                <div>
-                    <p class="shopping-cart__product-price">$120.00</p>
-                    <img src="./icons/icon_close.png" alt="delete">
+
+                <div class="shopping-cart__product">
+                    <div>
+                        <img src="https://images.pexels.com/photos/769733/pexels-photo-769733.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                            alt="product-image" class="shopping-cart__image">
+
+                        <p class="shopping-cart__product-description">T-Shio</p>
+                    </div>
+
+                    <div>
+                        <p class="shopping-cart__product-price">$120.00</p>
+
+                        <img src="./icons/icon_close.png" alt="delete">
+                    </div>
                 </div>
-            </div>
-            <div class="shopping-cart__product">
-                <div>
-                    <img src="https://images.pexels.com/photos/769733/pexels-photo-769733.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="product-image" class="shopping-cart__image">
-                    <p class="shopping-cart__product-description">Roudn Shelf</p>
+
+                <div class="shopping-cart__product">
+                    <div>
+                        <img src="https://images.pexels.com/photos/769733/pexels-photo-769733.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                            alt="product-image" class="shopping-cart__image">
+
+                        <p class="shopping-cart__product-description">T-Shio</p>
+                    </div>
+
+                    <div>
+                        <p class="shopping-cart__product-price">$120.00</p>
+
+                        <img src="./icons/icon_close.png" alt="delete">
+                    </div>
                 </div>
-                <div>
-                    <p class="shopping-cart__product-price">$120.00</p>
-                    <img src="./icons/icon_close.png" alt="delete">
+
+                <div class="shopping-cart__product">
+                    <div>
+                        <img src="https://images.pexels.com/photos/769733/pexels-photo-769733.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                            alt="product-image" class="shopping-cart__image">
+
+                        <p class="shopping-cart__product-description">T-Shio</p>
+                    </div>
+
+                    <div>
+                        <p class="shopping-cart__product-price">$120.00</p>
+
+                        <img src="./icons/icon_close.png" alt="delete">
+                    </div>
                 </div>
-            </div>
-            <div class="shopping-cart__product">
-                <div>
-                    <img src="https://images.pexels.com/photos/769733/pexels-photo-769733.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="product-image" class="shopping-cart__image">
-                    <p class="shopping-cart__product-description">Roudn Shelf</p>
+
+                <div class="shopping-cart__product">
+                    <div>
+                        <img src="https://images.pexels.com/photos/769733/pexels-photo-769733.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                            alt="product-image" class="shopping-cart__image">
+
+                        <p class="shopping-cart__product-description">T-Shio</p>
+                    </div>
+
+                    <div>
+                        <p class="shopping-cart__product-price">$120.00</p>
+
+                        <img src="./icons/icon_close.png" alt="delete">
+                    </div>
                 </div>
+
+            </ul>
+
+            <div class="shopping-cart__total">
                 <div>
-                    <p class="shopping-cart__product-price">$120.00</p>
-                    <img src="./icons/icon_close.png" alt="delete">
-                </div>
-            </div>
-            <div class="shopping-cart__product">
-                <div>
-                    <img src="https://images.pexels.com/photos/769733/pexels-photo-769733.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="product-image" class="shopping-cart__image">
-                    <p class="shopping-cart__product-description">Roudn Shelf</p>
-                </div>
-                <div>
-                    <p class="shopping-cart__product-price">$120.00</p>
-                    <img src="./icons/icon_close.png" alt="delete">
-                </div>
-            </div>
-            
-            <div>
-                <div class="shopping-cart__total">
                     <p>Total</p>
                     <p>$560.00</p>
                 </div>
-        
+
                 <button class="shopping-cart__button">Checkout</button>
             </div>
-    
+
         </section>
     </aside>
 </body>
+
 </html>
